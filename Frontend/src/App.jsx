@@ -10,14 +10,14 @@ function App() {
 
   // fetches notes from the backend
   useEffect(() => {
-    fetch("http://localhost:8001/api/notes")
+    fetch("https://noteswebapp-2.onrender.com/api/notes")
       .then((res) => res.json())
       .then((data) => setNotes(data));
   }, []);
 
   // sends a new note to the backend
   const addNote = async (note) => {
-    const res = await fetch("http://localhost:8001/api/notes", {
+    const res = await fetch("https://noteswebapp-2.onrender.com/api/notes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(note),
@@ -27,7 +27,7 @@ function App() {
   };
 
   const updateNote = async (id, updatedNote) => {
-    const res = await fetch(`http://localhost:8001/api/notes/${id}`, {
+    const res = await fetch(`https://noteswebapp-2.onrender.com/api/notes/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedNote),
